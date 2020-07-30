@@ -50,7 +50,7 @@
                         {{ __('Login') }}
                     </button>
                     @if (Route::has('password.request'))
-                        <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-gray-600" href="{{ route('password.request') }}">
+                        <a class="inline-block align-baseline text-sm text-gray-500 hover:text-gray-600" href="{{ route('password.request') }}">
                             {{ __('Forgot Your Password?') }}
                         </a>
                     @endif
