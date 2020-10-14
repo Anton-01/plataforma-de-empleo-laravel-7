@@ -26,13 +26,23 @@ class nueva_vacante extends FormRequest
         return [
             'titulo' => 'required|min:8',
             'categoria' => 'required|int:not_in:0|exists:categorias,id',
-            'experiencia' => 'required|int:not_in:0|exists:experiencias,id',
-            'ubicacion' => 'required|int:not_in:0|exists:ubicacions,id',
-            'salario' => 'required|int:not_in:0|exists:salarios,id',
-            'descripcion' => 'required|min:50',
-            'imagen' => 'required',
-            'skills' => 'required'
+            'plazas' => 'required',
 
+            'rfc' => 'required',
+            'experiencia' => 'required|int:not_in:0|exists:experiencias,id',
+            'salario' => 'required|int:not_in:0|exists:salarios,id',
+
+            'escolaridad' => 'required',
+            'horario' => 'required',
+            'rango' => 'required',
+            'sexo' => 'required',
+
+            'licencia' => 'required',
+            'cartilla' => 'required',
+
+            'description' => 'required',
+            'actividades' => 'required',
+            'habilidades' => 'required'
         ];
     }
 }

@@ -1,0 +1,11 @@
+.error-front {
+        display: flex;
+        margin-top: 7px;
+        font-size: 14px;
+        background: #ef233c;
+        border-radius: 8px;
+        outline: none;
+        color: #edf2f4;
+        padding: 10px;
+        text-align: center;
+}

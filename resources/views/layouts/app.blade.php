@@ -3,74 +3,43 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
+    <link rel="shortcut icon" href="{{ asset('assets/media/favicons/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/media/favicons/favicon-192x192.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css') }}">
+
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    @yield('styles')
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 
-<body class="bg-gray-200 min-h-screen leading-none">
-    <div id="app">
-        <nav class="bg-gray-800 py-2 shadow-md">
-            <div class="container mx-auto md:px-0">
-                <div class="flex items-center justify-around">
-                    <a class="text-2xl text-white" href="{{ url('/') }}">
-                        {{ config('app.name', 'Jobs') }}
-                    </a>
-
-                    <nav class="flex:1 text-right">
-                        @guest
-                        <a class="text-white no-underline hover:underline text-gray-300 p-3"
-                            href="{{ route('login') }}">{{ __('Login') }}</a>
-
-                        @if (Route::has('register'))
-                        <a class="text-white no-underline hover:underline text-gray-300 p-3"
-                            href="{{ route('register') }}">{{ __('Register') }}</a>
-                        @endif
-                        @else
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <span class="caret"></span>
-                        </a>
-                        <span class="text-gray-300 text-sm pr-4"> {{ Auth::user()->name }} </span>
-                        <a class="text-gray-300 no-underline hover:underline hover:text-gray-300 p-3 "
-                            href="{{ route('logout') }}" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                        @endguest
-                    </nav>
+<body>
+    <div id="page-container">
+        <main id="main-container">
+            <div class="bg-image" style="background-image: url('{{ url('/') }}/assets/media/photos/photo6@2x.jpg');">
+                <div class="hero-static bg-white-95">
+                    <div class="content">
+                        <div class="row justify-content-center">
+                            @yield('content')
+                        </div>
+                    </div>
+                    <div class="content content-full font-size-sm text-muted text-center">
+                        <strong>Sefeco</strong> &copy; <span data-toggle="year-copy"></span>
+                    </div>
                 </div>
             </div>
-        </nav>
-
-        <div class="py-4 bg-gray-700">
-            <div class="container mx-auto flex space-x-1">
-                @yield('navegacion')
-            </div>
-        </div>
-        <main class="mt-10 container mx-auto">
-            @yield('content')
         </main>
     </div>
-    @yield('scripts')
-</body>
 
+    <script src="{{ asset('assets/js/oneui.core.min.js') }}"></script>
+    <script src="{{ asset('assets/js/oneui.app.min.js') }}"></script>
+
+</body>
 </html>

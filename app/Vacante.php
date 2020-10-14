@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Vacante extends Model
 {
     protected $fillable = [
-        'titulo', 'imagen', 'descripcion', 'skills', 'categoria_id', 'experiencia_id',
-        'ubicacion_id', 'salario_id'
+        'titulo','slug', 'categoria_id', 'plazas','rfc', 'experiencia_id',
+        'ubicacion_id', 'salario_id','escolaridad', 'horario', 'rango', 'sexo', 'licencia', 'cartilla',
+        'descripcion', 'actividades', 'habilidades'
     ];
+    public function getRouteKeyName(){
+        return 'slug';
+    }
 
     public function categoria()
     {
@@ -30,5 +34,8 @@ class Vacante extends Model
     public function reclutador()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    public function candidatos(){
+        return $this->hasMany(Candidato::class);
     }
 }

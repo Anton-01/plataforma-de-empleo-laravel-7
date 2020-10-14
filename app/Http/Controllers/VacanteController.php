@@ -55,17 +55,32 @@ class VacanteController extends Controller
     {
         $data = $request->validated();
         auth()->user()->vacantes()->create([
+
             'titulo' => $data['titulo'],
+            'slug' => time().'-'.Str::slug($data['titulo']),
             'categoria_id' => $data['categoria'],
+
+            'plazas' => $data['plazas'],
+            'rfc' => $data['rfc'],
             'experiencia_id' => $data['experiencia'],
-            'ubicacion_id' => $data['ubicacion'],
+
             'salario_id' => $data['salario'],
-            'descripcion' => $data['descripcion'],
-            'imagen' => $data['imagen'],
-            'skills' => $data['skills'],
+            'escolaridad' => $data['escolaridad'],
+            'horario' => $data['horario'],
+
+            'rango' => $data['rango'],
+            'sexo' => $data['sexo'],
+            'licencia' => $data['licencia'],
+            'cartilla' => $data['cartilla'],
+
+            'ubicacion_id' => 1,
+
+            'descripcion' => $data['description'],
+            'actividades' => $data['actividades'],
+            'habilidades' => $data['habilidades'],
         ]);
 
-        return redirect()->action('VacanteController@index');
+        return redirect()->action('VacanteController@index')->with('vacante-guardada-ok', '');
     }
 
     /**
@@ -87,7 +102,19 @@ class VacanteController extends Controller
      */
     public function edit(Vacante $vacante)
     {
-        //
+
+        $this->authorize('view', $vacante);
+        $categorias = Categoria::all();
+        $experiencia = Experiencia::all();
+        $ubicacion = Ubicacion::all();
+        $salario = Salario::all();
+        return view('vacantes.edit', [
+            'categorias' => $categorias,
+            'experiencia' => $experiencia,
+            'ubicacion' => $ubicacion,
+            'salario' => $salario,
+            'vacante' => $vacante
+        ]);
     }
 
     /**
@@ -97,9 +124,36 @@ class VacanteController extends Controller
      * @param  \App\Vacante  $vacante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vacante $vacante)
+    public function update( nueva_vacante $request, Vacante $vacante)
     {
-        //
+        //$this->authorize('update', $vacante);
+        $data = $request->validated();
+
+        $vacante->titulo = $data['titulo'];
+        $vacante->slug = time().'-'.Str::slug($data['titulo']);
+        $vacante->categoria_id = $data['categoria'];
+
+        $vacante->plazas = $data['plazas'];
+        $vacante->rfc = $data['rfc'];
+        $vacante->experiencia_id = $data['experiencia'];
+
+        $vacante->salario_id = $data['salario'];
+        $vacante->escolaridad = $data['escolaridad'];
+        $vacante->horario = $data['horario'];
+
+        $vacante->rango = $data['rango'];
+        $vacante->sexo = $data['sexo'];
+        $vacante->licencia = $data['licencia'];
+        $vacante->cartilla = $data['cartilla'];
+
+        $vacante->ubicacion_id = 1;
+
+        $vacante->descripcion = $data['description'];
+        $vacante->actividades = $data['actividades'];
+        $vacante->habilidades = $data['habilidades'];
+        $vacante->save();
+
+        return redirect()->route('vacantes.index');
     }
 
     /**
@@ -110,25 +164,22 @@ class VacanteController extends Controller
      */
     public function destroy(Vacante $vacante)
     {
-        //
+        $this->authorize('delete', $vacante);
+        $vacante->delete();
+        return response()->json(['mensaje' => 'Se elimino la vacante'. $vacante->titulo]);
     }
 
-    public function imagen(Request $request)
-    {
-        $imagen_devjob = $request->file('file');
-        $nombre_imagen = Str::random(7) . time() . Str::random(7) . '.' . $imagen_devjob->extension();
-        $imagen_devjob->move(public_path('storage/vacantes'), $nombre_imagen);
-        return response()->json(['imagen' => $nombre_imagen]);
+    public function estado( Request $request, Vacante  $vacante){
+
+        $vacante->condicion = $request->estado;
+        $vacante->save();
+        return response()->json([ 'respuesta' => 'Correcto' ]);
     }
 
-    public function borrarImagen(Request $request)
-    {
-        if ($request->ajax()) {
-            $imagen = $request->get('imagen');
-            if (File::exists('storage/vacantes/' . $imagen)) {
-                File::delete('storage/vacantes/' . $imagen);
-            }
-        }
-        return response('imagen eliminada', 200);
+    public function buscador(Request $request){
+        $vacantes    =   Vacante::where("nombre",'like',$request->texto."%")->take(10)->get();
+        return view("nombres.paginas",compact("nombres"));
     }
+
+
 }
