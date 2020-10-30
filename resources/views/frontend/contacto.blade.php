@@ -3,7 +3,7 @@
 <!-- Hero Area Start-->
 <div class="slider-area ">
     <div class="single-slider section-overly slider-height2 d-flex align-items-center"
-        data-background="{{ asset('front/img/hero/Terrazas.jpg') }}">
+        data-background="{{ asset('front/img/hero/contacto.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -25,26 +25,42 @@
                         <h2 class="contact-title">Ponerte en contacto</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <form class="form-contact contact_form" action="{{ route('vacantes.correo-contacto') }}" method="post" novalidate="novalidate">
+                            @csrf
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Escribir mensaje'" placeholder=" Escribir mensaje"></textarea>
+                                        <textarea class="form-control w-100" name="mensaje"  cols="30" rows="9"  placeholder=" Escribir mensaje"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre completo'" placeholder="Nombre completo">
+                                        <input class="form-control valid" name="nombre" type="text" placeholder="Nombre completo">
+                                        @error('nombre')
+                                        <div class="error-front mb-2">
+                                            <span class="block">{{ $message }}</span>
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo electrónico'" placeholder="Correo electrónico">
+                                        <input class="form-control valid" name="telefono" type="text"  placeholder="Teléfono o celular">
+                                        @error('telefono')
+                                        <div class="error-front mb-2">
+                                            <span class="block">{{ $message }}</span>
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ingrese un asunto'" placeholder="Ingrese un asunto">
+                                        <input class="form-control" name="asunto"  type="text"  placeholder="Ingrese un asunto">
+                                        @error('asunto')
+                                        <div class="error-front mb-2">
+                                            <span class="block">{{ $message }}</span>
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -65,14 +81,14 @@
                             <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                             <div class="media-body">
                                 <h3>+52 443 147 8260</h3>
-                                <p>Lunes a Viernes 9am to 6pm</p>
+                                <p>Lunes a Viernes de 9am a 4pm</p>
                             </div>
                         </div>
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-email"></i></span>
                             <div class="media-body">
                                 <h3>support@sefeco.com</h3>
-                                <p>Envíanos tu consulta en cualquier momento!</p>
+                                <p>¡Envíanos tu consulta en cualquier momento!</p>
                             </div>
                         </div>
                     </div>

@@ -66,4 +66,5 @@ Route::get('/sefeco/buscar', 'VacanteController@resultados')->name('vacantes.res
 
 Route::get('/vacantes/{vacante}', 'VacanteController@show')->name('vacantes.show');
 
+Route::post('/vacantes/correo/contacto', 'ContactController@correo')->name('vacantes.correo-contacto');
 

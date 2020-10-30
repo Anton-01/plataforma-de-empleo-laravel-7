@@ -3,7 +3,7 @@
 <!-- Hero Area Start-->
 <div class="slider-area ">
     <div class="single-slider section-overly slider-height2 d-flex align-items-center"
-        data-background="{{ asset('front/img/hero/Terrazas.jpg') }}">
+        data-background="{{ asset('front/img/hero/trabajo3.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -21,45 +21,7 @@
 <div class="job-listing-area pt-120 pb-120">
     <div class="container">
         <div class="row">
-            <!-- Left content -->
-            <div class="col-xl-3 col-lg-3 col-md-4">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="small-section-tittle2 mb-45">
-                            <div class="ion"> <svg xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="12px">
-                                    <path fill-rule="evenodd" fill="rgb(27, 207, 107)"
-                                        d="M7.778,12.000 L12.222,12.000 L12.222,10.000 L7.778,10.000 L7.778,12.000 ZM-0.000,-0.000 L-0.000,2.000 L20.000,2.000 L20.000,-0.000 L-0.000,-0.000 ZM3.333,7.000 L16.667,7.000 L16.667,5.000 L3.333,5.000 L3.333,7.000 Z" />
-                                </svg>
-                            </div>
-                            <h4>Filtrar empleos</h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- Job Category Listing start -->
-                <div class="job-category-listing mb-50">
-                    <!-- single one -->
-                    <div class="single-listing">
-                        <div class="small-section-tittle2">
-                            <h4>Categoría</h4>
-                        </div>
-                        <!-- Select job items start -->
-                        <div class="select-job-items2">
-                            <select name="select">
-                                <option selected disabled>-- Selecciona una categoría --</option>
-                                <option value="">Category 1</option>
-                                <option value="">Category 2</option>
-                                <option value="">Category 3</option>
-                                <option value="">Category 4</option>
-                            </select>
-                        </div>
-                        <!--  Select job items End-->
-                    </div>
-                </div>
-                <!-- Job Category Listing End -->
-            </div>
-            <!-- Right content -->
-            <div class="col-xl-9 col-lg-9 col-md-8">
+            <div class="col-md-12">
                 <!-- Featured_job_start -->
                 <section class="featured-job-area">
                     <div class="container">
@@ -73,7 +35,7 @@
                         </div>
                         <!-- Count of Job list End -->
                         @forelse ($vacantes as $vacante)
-                        <div class="single-job-items mb-30">
+                        <div class="single-job-items mb-30 border-sefeco">
                             <div class="job-items">
 
                                 <div class="job-tittle">
@@ -81,9 +43,8 @@
                                         <h4>{{ $vacante->titulo }}</h4>
                                     </a>
                                     <ul>
-                                        <li>{{ $vacante->reclutador->name }}</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>{{ $vacante->ubicacion->ubicacion }}</li>
-                                        <li>{{ $vacante->salario->salario }}</li>
+                                        <li>Empresa: {{ $vacante->reclutador->name }}</li>
+                                        <li>Salario: {{ $vacante->salario->salario }}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -112,13 +73,7 @@
             <div class="col-xl-12">
                 <div class="single-wrap d-flex justify-content-center">
                     <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-start">
-                            <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                            <li class="page-item"><a class="page-link" href="#">02</a></li>
-                            <li class="page-item"><a class="page-link" href="#">03</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><span class="ti-angle-right"></span></a>
-                            </li>
-                        </ul>
+                        {{$vacantes->links()}}
                     </nav>
                 </div>
             </div>

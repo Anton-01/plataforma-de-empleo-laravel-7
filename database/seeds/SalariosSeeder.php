@@ -14,22 +14,32 @@ class SalariosSeeder extends Seeder
     public function run()
     {
         DB::table('salarios')->insert([
-            'salario' => '0 - 1000 USD',
+            'salario' => '0 - 3,000.00 MX',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
         DB::table('salarios')->insert([
-            'salario' => '1000 - 2000 USD',
+            'salario' => '3,000.00 - 5,000.00 MX',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
         DB::table('salarios')->insert([
-            'salario' => '2000 - 4000 USD',
+            'salario' => '5,000.00 - 8,000.00 MX',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
         DB::table('salarios')->insert([
-            'salario' => '4000 - 6000 USD',
+            'salario' => '8,000.00 - 10,000 MX',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        DB::table('salarios')->insert([
+            'salario' => '10,000.00 - 14,000 MX',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        DB::table('salarios')->insert([
+            'salario' => '14,000.00 - 17,000 MX',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);

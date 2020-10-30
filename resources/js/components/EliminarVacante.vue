@@ -2,7 +2,10 @@
   <button
     class="btn btn-sm btn-danger mr-2"
     @click="eliminarVacante"
-  >Eliminar</button>
+  >
+  <i class="fas fa-trash-alt"></i>
+  Eliminar
+  </button>
 </template>
 <script>
 export default {

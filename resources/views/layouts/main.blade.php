@@ -29,7 +29,7 @@
     <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/plugins/jquery.fancybox.min.css') }}">
 
-
+    @livewireStyles
 
 
 </head>
@@ -97,6 +97,8 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="{{ asset('front/js/plugins.js') }}"></script>
     <script src="{{ asset('front/js/main.js') }}"></script>
+
+    @livewireScripts
 
 </body>
 

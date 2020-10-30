@@ -23,13 +23,22 @@
                     <td> {{ $candidato->nombre }}</td>
                     <td> {{ $candidato->telefono }}</td>
                     <td> {{ $candidato->email ? $candidato->email : 'Sin correo' }}</td>
-                    <td> {{ $candidato->cv ? $candidato->cv : 'Sin Curriculum' }}</td>
                     <td>
-                        @if($vacante->nota)
-                        <button type="button" class="btn btn-sm btn-primary push" data-toggle="modal"
+                        @if ($candidato->cv)
+                            <a href="{{ url('/') }}/candidatos/pdf/{{ $candidato->cv }}" download class="btn btn-primary btn-sm">
+                               <i class="fas fa-file-pdf"></i>
+                                Descargar
+                            </a>
+                        @else
+                            Sin curriculum
+                        @endif
+                    </td>
+                    <td>
+                        @if($candidato->mensaje)
+                        <button type="button" class="btn btn-sm btn-primary btn-sm" data-toggle="modal"
                             data-target="#modal-candidato-nota{{ $candidato->id }}">
                             <i class="fas fa-sticky-note"></i>
-                            Ver Nota
+                            Leer mensaje
                         </button>
                         @else
                         'Sin nota'
@@ -41,7 +50,7 @@
                                 <div class="modal-content">
                                     <div class="block block-themed block-transparent mb-0">
                                         <div class="block-header bg-primary-dark">
-                                            <h3 class="block-title">Nota del candidaro</h3>
+                                            <h3 class="block-title">Mensaje del candidato</h3>
                                             <div class="block-options">
                                                 <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                                                     <i class="fa fa-fw fa-times"></i>
@@ -49,7 +58,7 @@
                                             </div>
                                         </div>
                                         <div class="block-content font-size-sm">
-                                            {{ $vacante->nota }}
+                                            {{ $candidato->mensaje }}
                                         </div>
                                         <div class="block-content block-content-full text-right border-top">
                                             <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal"> Cerrar </button>

@@ -10,9 +10,9 @@
             @csrf
             @method('PUT')
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="example-text-input">Puesto ofrecido</label>
+                        <label for="example-text-input">Puesto ofrecido <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <input class="form-control" id="titulo" type="text" name="titulo" value="{{ old('titulo', $vacante->titulo) }}"
                             placeholder="Titulo">
                         @error('titulo')
@@ -22,28 +22,9 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="categoria">Categoría</label>
-                        <select class="form-control" id="categoria" name="categoria">
-                            <option value="0" disabled select> Selecciona una categoria</option>
-                            @forelse ($categorias as $item)
-                            <option value="{{ $item->id }}" {{ old('categoria', $vacante->categoria_id) == $item->id ? 'selected' : '' }}>
-                                {{ $item->nombre }} </option>
-                            @empty
-                            <option value="0"> No hay categorias disponibles</option>
-                            @endforelse
-                        </select>
-                        @error('categoria')
-                        <div class="alert bg-danger alert-dismissable text-white rounded mt-2" role="alert">
-                            <p class="mb-0">{{ $message }}</p>
-                        </div>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="plazas">No.plazas</label>
+                        <label for="plazas">No.plazas <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <select class="form-control" id="plazas" name="plazas">
                             <option value="0" disabled > Selecciona una categoria</option>
                             <option value="1" {{ $vacante->plazas === '1' ? 'selected' : '' }}> 1</option>
@@ -81,7 +62,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="experiencia">Experiencia en el puesto</label>
+                        <label for="experiencia">Experiencia en el puesto <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <select class="form-control" id="experiencia" name="experiencia">
                             <option value="0" disabled > Selecciona la experiencia</option>
                             @forelse ($experiencia as $item)
@@ -100,7 +81,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="salario">Salario (Mensual)</label>
+                        <label for="salario">Salario (Mensual) <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <select class="form-control" id="salario" name="salario">
                             <option value="0" disabled> Selecciona el salario</option>
                             @forelse ($salario as $item)
@@ -123,7 +104,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="escolaridad">Escolaridad mínima</label>
+                        <label for="escolaridad">Escolaridad mínima <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <input class="form-control" id="escolaridad" type="text" name="escolaridad"
                             value="{{ old('escolaridad', $vacante->escolaridad) }}" placeholder="escolaridad">
                         @error('escolaridad')
@@ -135,7 +116,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="horario">Horario y días de trabajo</label>
+                        <label for="horario">Horario y días de trabajo <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <input class="form-control" id="horario" type="text" name="horario" value="{{ old('horario', $vacante->horario) }}"
                             placeholder="horario">
                         @error('horario')
@@ -150,7 +131,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="rango">Rango de edad</label>
+                        <label for="rango">Rango de edad <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <select class="form-control" id="rango" name="rango">
                             <option value="0" disabled> Selecciona el rango</option>
                             <option value="18-20" {{ $vacante->rango === '18-20' ? 'selected' : '' }}> 18-20</option>
@@ -174,7 +155,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="sexo">Sexo</label>
+                        <label for="sexo">Sexo <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <select class="form-control" id="sexo" name="sexo">
                             <option value="0" disabled selected> Selecciona el sexo</option>
                             <option value="Mujer" {{ $vacante->sexo === 'Mujer' ? 'selected' : '' }}> Mujer</option>
@@ -190,7 +171,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="licencia">Licencia de manejo</label>
+                        <label for="licencia">Licencia de manejo <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <select class="form-control" id="licencia" name="licencia">
                             <option value="0" disabled> Selecciona una opción</option>
                             <option value="si" {{ $vacante->licencia === 'si' ? 'selected' : '' }}> Si</option>
@@ -205,7 +186,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="cartilla">Cartilla militar</label>
+                        <label for="cartilla">Cartilla militar <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <select class="form-control" id="cartilla" name="cartilla">
                             <option value="0" disabled> Selecciona una opción</option>
                             <option value="si" {{ $vacante->cartilla === 'si' ? 'selected' : '' }}> Si</option>
@@ -221,7 +202,7 @@
             </div>
 
             <div class="form-group">
-                <label for="description">Descripción del puesto</label>
+                <label for="description">Descripción del puesto <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                 <textarea class="form-control" id="descripcion" name="description">
                     {{ old('description',$vacante->descripcion) }}
                 </textarea>
@@ -234,7 +215,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="actividades">Actividades a realizar</label>
+                        <label for="actividades">Actividades a realizar <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <textarea class="form-control form-control-alt" id="actividades" name="actividades">
                             {{ old('actividades', $vacante->actividades) }}
                         </textarea>
@@ -247,7 +228,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="habilidades">Habilidades indispensables</label>
+                        <label for="habilidades">Habilidades indispensables <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                         <textarea class="form-control form-control-alt" id="habilidades" name="habilidades">
                             {{ old('habilidades', $vacante->habilidades) }}
                         </textarea>
@@ -261,7 +242,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Publicar</button>
+                <button type="submit" class="btn btn-color-sefeco"> <i class="fas fa-save"></i> Publicar</button>
             </div>
 
         </form>

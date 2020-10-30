@@ -27,7 +27,8 @@
                     <td> {{ $data['vacante'] }}</td>
                     <td> {{ $notification->created_at->diffForHumans() }}</td>
                     <td>
-                        <a href="{{ route('candidatos.index', $data['slug']) }}" class="">
+                        <a href="{{ route('candidatos.index', $data['slug']) }}" class="color-sefeco">
+                            <i class="fas fa-eye"></i>
                             Ver Candidatos
                         </a>
                     </td>

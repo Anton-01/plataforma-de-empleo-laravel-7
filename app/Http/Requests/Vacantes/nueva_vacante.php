@@ -25,10 +25,9 @@ class nueva_vacante extends FormRequest
     {
         return [
             'titulo' => 'required|min:8',
-            'categoria' => 'required|int:not_in:0|exists:categorias,id',
             'plazas' => 'required',
 
-            'rfc' => 'required',
+            'rfc' => 'nullable',
             'experiencia' => 'required|int:not_in:0|exists:experiencias,id',
             'salario' => 'required|int:not_in:0|exists:salarios,id',
 

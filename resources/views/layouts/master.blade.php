@@ -16,7 +16,7 @@
 
     <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
 
-    <link rel="stylesheet" href="{{ asset('assets/css/oneui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/oneui.css') }}">
     <script src="{{ asset('assets/js/oneui.core.min.js')}}"></script>
 
     <script src="{{ asset('js/app.js')}}" defer></script>

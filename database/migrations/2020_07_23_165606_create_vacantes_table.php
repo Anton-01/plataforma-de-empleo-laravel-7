@@ -46,12 +46,12 @@ class CreateVacantesTable extends Migration
             $table->string('titulo');
             $table->string('slug')->unique();
             $table->string('plazas', '10');
-            $table->string('rfc', '30');
+            $table->string('rfc', '50')->nullable();
 
             $table->string('escolaridad');
             $table->string('horario');
             $table->string('rango');
-            $table->enum('sexo', ['Hombre','Mujer']);
+            $table->enum('sexo', ['Hombre','Mujer', 'Indistinto']);
             $table->enum('licencia', ['Si', 'No']);
             $table->enum('cartilla', ['Si', 'No']);
 
@@ -61,9 +61,9 @@ class CreateVacantesTable extends Migration
 
             $table->boolean('condicion')->default(true);
 
-            $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
+            //$table->foreignId('categoria_id')->nullable();
             $table->foreignId('experiencia_id')->constrained()->onDelete('cascade');
-            $table->foreignId('ubicacion_id')->constrained()->onDelete('cascade');
+            //$table->foreignId('ubicacion_id')->constrained()->onDelete('cascade');
             $table->foreignId('salario_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();

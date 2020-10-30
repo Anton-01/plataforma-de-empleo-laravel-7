@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
-    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css') }}">
+    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.css') }}">
 
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -30,8 +30,8 @@
                             @yield('content')
                         </div>
                     </div>
-                    <div class="content content-full font-size-sm text-muted text-center">
-                        <strong>Sefeco</strong> &copy; <span data-toggle="year-copy"></span>
+                    <div class="content content-full font-size-sm color-sefeco text-center">
+                        <strong>Secretaría de Fomento Económico Morelia {{ now()->year }}</strong> &copy; <span data-toggle="year-copy"></span>
                     </div>
                 </div>
             </div>

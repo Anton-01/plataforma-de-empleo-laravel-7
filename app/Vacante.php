@@ -38,4 +38,11 @@ class Vacante extends Model
     public function candidatos(){
         return $this->hasMany(Candidato::class);
     }
+
+
+
+    public function trabajadores()
+{
+    return $this->hasManyThrough(Vacante::class, Candidato::class);
+}
 }

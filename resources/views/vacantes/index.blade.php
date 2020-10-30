@@ -24,18 +24,24 @@
                         </estado-vacante>
                     </td>
                     <td>
-                        <a href="{{ route('candidatos.index', ['id' => $vacante->slug]) }}">
+                        <a href="{{ route('candidatos.index', ['id' => $vacante->slug]) }}" class="color-sefeco">
                             {{ $vacante->candidatos->count() }}
                             Candidatos
                         </a>
                     </td>
                     <td>
                         <a href="{{ route('vacantes.edit', $vacante) }}"
-                        class="btn btn-sm btn-info mr-2">Editar</a>
+                        class="btn btn-sm btn-info mr-2">
+                        <i class="fas fa-edit"></i>
+                        Editar
+                    </a>
 
                         <eliminar-vacante id="{{ $vacante->slug }}"></eliminar-vacante>
 
-                        <a href="{{ route('vacantes.show', $vacante->slug) }}" class="btn btn-sm btn-primary" target="_blank">Ver</a>
+                        <a href="{{ route('vacantes.show', $vacante->slug) }}" class="btn btn-sm btn-color-sefeco" target="_blank">
+                            <i class="fas fa-eye"></i>
+                            Ver
+                        </a>
                     </td>
                 </tr>
                 @endforeach

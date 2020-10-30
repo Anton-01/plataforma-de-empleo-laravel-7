@@ -1,15 +1,14 @@
 
     @forelse ($vacantes as $vacante)
-    <div class="single-job-items mb-30">
+    <div class="single-job-items mb-30 border-sefeco">
         <div class="job-items">
             <div class="job-tittle">
                 <a href="{{ route('vacantes.show', $vacante) }}">
                     <h4>{{ $vacante->titulo }}</h4>
                 </a>
                 <ul>
-                    <li>{{ $vacante->reclutador->name }}</li>
-                    <li><i class="fas fa-map-marker-alt"></i>{{ $vacante->ubicacion->ubicacion }}</li>
-                    <li>{{ $vacante->salario->salario }}</li>
+                    <li>Empresa: {{ $vacante->reclutador->name }}</li>
+                    <li>Salario: {{ $vacante->salario->salario }}</li>
                 </ul>
             </div>
         </div>

@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Nombre de la empresa</label>
+                                <label for="name">Nombre de la empresa <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                                 <input id="name" type="text"
                                     class="form-control form-control-alt form-control-lg @error('name') is-invalid @enderror" name="name"
                                     value="{{ old('name') }}" autofocus>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="contacto">Nombre del contacto</label>
+                                <label for="contacto">Nombre del contacto <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                                 <input id="contacto" type="text"
                                     class="form-control form-control-alt form-control-lg @error('contacto') is-invalid @enderror" name="contacto"
                                     value="{{ old('contacto') }}" autofocus>
@@ -52,7 +52,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="telefono">Teléfono</label>
+                                <label for="telefono">Teléfono <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                                 <input id="telefono" type="text"
                                     class="form-control form-control-alt form-control-lg @error('telefono') is-invalid @enderror" name="telefono"
                                     value="{{ old('telefono') }}"autofocus>
@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="email">Correo electrónico</label>
+                                <label for="email">Correo electrónico <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                                 <input id="email" type="email"
                                     class="form-control form-control-alt form-control-lg @error('email') is-invalid @enderror" name="email"
                                     value="{{ old('email') }}" autofocus>
@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="password">Contraseña</label>
+                                <label for="password">Contraseña <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                                 <input id="password" type="password" class="form-control form-control-alt form-control-lg @error('password') is-invalid @enderror" name="password">
                                 @error('password')
                                 <div class="alert bg-danger alert-dismissable text-white rounded mt-2" role="alert">
@@ -105,7 +105,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="password-confirm">Repetir contraseña</label>
+                                <label for="password-confirm">Repetir contraseña <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                                 <input type="password" class="form-control form-control-alt form-control-lg" name="password_confirmation" id="password-confirm">
                                 @error('password_confirmation')
                                 <div class="alert bg-danger alert-dismissable text-white rounded mt-2" role="alert">
@@ -118,7 +118,7 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-md-3">
-                        <button type="submit" class="btn btn-block btn-primary">
+                        <button type="submit" class="btn btn-block btn-color-sefeco">
                             <i class="fa fa-fw fa-plus mr-1"></i> {{ __('Register') }}
                         </button>
                     </div>

@@ -25,7 +25,7 @@
                     @csrf
                     <div class="py-3">
                         <div class="form-group">
-                            <label for="email" class="text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="text-md-right">{{ __('E-Mail Address') }} <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                             <input type="text" class="form-control form-control-alt form-control-lg" id="email"
                                 placeholder="{{ __('E-Mail Address') }}" name="email" value="{{ old('email') }}"
                                 autocomplete="email" autofocus>
@@ -36,7 +36,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="password" class="text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="text-md-right">{{ __('Password') }} <span class="campo-obligatorio">(Campo obligatorio)</span></label>
                             <input type="password" class="form-control form-control-alt form-control-lg" id="password"
                                 placeholder="******************" name="password" autocomplete="current-password">
                             @error('password')
@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-6 col-xl-5">
-                            <button type="submit" class="btn btn-block btn-primary">
+                            <button type="submit" class="btn btn-block btn-color-sefeco">
                                 <i class="fa fa-fw fa-sign-in-alt mr-1"></i> {{ __('Login') }}
                             </button>
                         </div>

@@ -17,4 +17,3 @@ mix.js('resources/js/app.js', 'public/js')
         jquery: ['$', 'window.jQuery', 'jQuery']
     })
     .sass('resources/sass/app.scss', 'public/css')
-    .tailwind()

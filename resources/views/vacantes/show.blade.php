@@ -6,7 +6,7 @@
 <!-- Hero Area Start-->
 <div class="slider-area ">
     <div class="single-slider section-overly slider-height2 d-flex align-items-center"
-        data-background="{{ asset('front/img/hero/acueducto_detail.jpg') }}">
+        data-background="{{ asset('front/img/hero/detalle.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -26,18 +26,17 @@
             <!-- Left Content -->
             <div class="col-xl-7 col-lg-8">
                 <!-- job single -->
-                <div class="single-job-items mb-50">
+                <div class="single-job-items mb-50 border-sefeco">
                     <div class="job-items">
                         <div class="job-tittle">
                             <a href="#">
                                 <h4>{{ $vacante->titulo }}</h4>
                             </a>
                             <ul>
-                                <li>{{ $vacante->reclutador->name }}</li>
-                                <li><i class="fas fa-map-marker-alt"></i>{{ $vacante->ubicacion->ubicacion }}</li>
-                                <li>{{ $vacante->salario->salario }}</li>
+                                <li>Empresa: {{ $vacante->reclutador->name }}</li>
+                                <li>Salario: {{ $vacante->salario->salario }}</li>
                             </ul>
-                            <p>Horario: {{ $vacante->horario }}</p>
+                            <p class="color-sefeco">Horario: {{ $vacante->horario }}</p>
                         </div>
                     </div>
                 </div>
@@ -80,8 +79,6 @@
                         <li>Publicado : <span>{{ $vacante->created_at->diffForHumans() }}</span></li>
                         <li>No. Plazas : <span>{{ $vacante->plazas }}</span></li>
                         <hr>
-                        <li>Ubicación : <span>{{ $vacante->ubicacion->ubicacion }}</span></li>
-                        <li>Categoría : <span>{{ $vacante->categoria->nombre }}</span></li>
                         <li>Experiencia : <span>{{ $vacante->experiencia->experiencia }}</span></li>
                         <li>Salario : <span>{{ $vacante->salario->salario }}</span></li>
                         <li>RFC : <span>{{ $vacante->rfc }}</span></li>
@@ -97,7 +94,7 @@
                     <form action="{{ route('candidatos.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="small-section-tittle">
-                            <h4>Contactar al reclutador</h4>
+                            <h3>Aplicar a este empleo</h3>
                         </div>
 
                         <div class="mt-10">
@@ -177,10 +174,10 @@
     <h2>
         ¡Felicidades!
     </h2>
-    <p>
+    <p class="color-sefeco">
         Te has postulado exitosamente a la vacante.
     </p>
-    <p>
+    <p class="color-sefeco">
         ¡ Suerte en tu proceso !
     </p>
     <p>
